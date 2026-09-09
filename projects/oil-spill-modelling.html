@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oil Spill Trajectory Modelling | Md Abu Yousuf Prodhan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body { font-family: 'Inter', var(--font-body); }
+
+        .project-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d3b5c 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.03" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .project-hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-hero .back-link {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-hero .back-link:hover {
+            color: white;
+        }
+
+        .project-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .project-hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .project-hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .project-hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-hero-tags .tag-pill {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: white;
+        }
+
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .project-section {
+            margin-bottom: 3rem;
+        }
+
+        .project-section h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .project-section h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .project-section p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .project-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-section li {
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        /* Layout Grids for Diagnostics and Comparisons */
+        .figure-grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .figure-grid-4col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .figure-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.75rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .figure-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.25rem;
+            border-radius: var(--radius);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .project-links-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-links-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .project-links-bar a:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .project-nav {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .project-nav a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 640px) {
+            .project-hero h1 { font-size: 1.75rem; }
+            .project-hero-meta { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Md Abu Yousuf Prodhan<span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#research">Research</a></li>
+                <li><a href="../index.html#publications">Publications</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <header class="project-hero">
+        <div class="project-hero-container">
+            <a href="../index.html#research" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Research
+            </a>
+            <h1>Modelling the Fate and Trajectories of Hypothetical Oil Spills Near Chattogram and Mongla Ports, Bangladesh</h1>
+            <div class="project-hero-meta">
+                <span><i class="fas fa-calendar"></i> 2024–2025</span>
+                <span><i class="fas fa-building"></i> Shahjalal University of Science and Technology</span>
+                <span><i class="fas fa-user"></i> Supervisor: Dr. Subrata Sarker</span>
+            </div>
+            <div class="project-hero-tags">
+                <span class="tag-pill">OpenDrift</span>
+                <span class="tag-pill">Python</span>
+                <span class="tag-pill">CMEMS</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Content -->
+    <main class="project-content">
+
+        <!-- Abstract / Overview -->
+        <section class="project-section">
+            <h2><i class="fas fa-align-left"></i> Overview</h2>
+            <p>
+                Oil spills pose a major threat to Bangladesh’s coastal ecosystems, particularly around busy ports such as Chattogram and Mongla. I used the OpenOil module of the OpenDrift framework to simulate hypothetical oil spills under summer and winter monsoon conditions, tracking 10,000 oil particles for seven days using ocean and atmospheric forcing data. The simulations revealed strong seasonal differences in oil transport, coastal stranding, and weathering, with some scenarios showing extensive shoreline exposure while others resulted in prolonged offshore transport. The findings highlight the importance of season-specific oil spill preparedness and response strategies for Bangladesh’s coast.
+            </p>
+        </section>
+
+        <!-- Methodology -->
+        <section class="project-section">
+            <h2><i class="fas fa-cogs"></i> Methodology</h2>
+            <p>
+                Describe the data sources, models, software, and analytical techniques used in this project. Be specific about versions, parameters, and configurations.
+            </p>
+            <ul>
+                <li><strong>Data:</strong> High-resolution oceanographic and atmospheric forcing data from Copernicus Marine Environment Monitoring Service (CMEMS), including ocean currents, wind, and wave conditions for 2024.</li>
+                <li><strong>Tools:</strong> Python, OpenDrift, and its OpenOil module for Lagrangian oil spill simulation and trajectory analysis.</li>
+                <li><strong>Methods:</strong> Scenario-based simulations were conducted for offshore locations near Chattogram and Mongla ports under summer and winter monsoon conditions. Each scenario released 10,000 Medium Crude Oil (API 30) particles and simulated their transport and fate for 7 days, incorporating advection by currents and wind, wave effects, and weathering processes including evaporation, emulsification, and biodegradation.</li>
+            </ul>
+
+            <!-- METHOD DIAGRAM -->
+            <figure style="margin: 20px 0;">
+                <img src="../assets/images/figures/Oil_spill_methodology_flowchart.png" 
+                     alt="Methodology Diagram" 
+                     style="width:60%; max-width:500px; display:block; margin:0 auto; border-radius:8px; border: 1px solid var(--border);">
+                <figcaption class="figure-caption">
+                    Figure 1: Workflow schematic detailing the numerical framework, forcing data integration, and particle tracking procedures.
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- Results Section -->
+        <section class="project-section">
+            <h2><i class="fas fa-chart-bar"></i> Results</h2>
+            <p>
+                Simulations revealed strong seasonal variability in oil spill dispersion patterns within the Bay of Bengal, driven primarily by monsoon wind reversals and surface currents.
+            </p>
+
+            <!-- PORT 1: CHATTOGRAM -->
+            <h3>Chattogram Port Analysis</h3>
+            <p>Under summer monsoon conditions, offshore oil transport near Chattogram is heavily influenced by northward coastal currents and strong southwesterly winds.</p>
+            
+            <div class="figure-grid-2col">
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_July15_July22_trajectory.png" alt="July Trajectory Simulation Chattogram">
+                    <figcaption class="figure-caption">Figure 2a: Trajectory simulation near Chattogram Port (Summer Monsoon: July 15–22).</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_Jan15-Jan22_trajectory.png" alt="January Trajectory Simulation Chattogram">
+                    <figcaption class="figure-caption">Figure 2b: Trajectory simulation near Chattogram Port (Winter Monsoon: Jan 15–22).</figcaption>
+                </div>
+            </div>
+
+            <!-- Chattogram Seasonal Environmental & Weathering Diagnostics -->
+            <p style="font-size:0.95rem; font-weight:600; margin-top:1.5rem;">Chattogram Diagnostic Drivers & Weathering Dynamics:</p>
+            
+            <div class="figure-grid-4col">
+                <!-- Summer Diagnostics -->
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_Summer_Wind.png" alt="Chattogram Summer Wind Vector">
+                    <figcaption class="figure-caption">Figure 2c: Chattogram Summer Wind Speed & Vector Field.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_Summer_Currents.png" alt="Chattogram Summer Surface Currents">
+                    <figcaption class="figure-caption">Figure 2d: Chattogram Summer Surface Ocean Currents.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_Summer_Budget.png" alt="Chattogram Summer Oil Budget">
+                    <figcaption class="figure-caption">Figure 2e: Chattogram Summer Mass Balance / Oil Budget.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_Summer_Entrainment.png" alt="Chattogram Summer Entrainment Rate">
+                    <figcaption class="figure-caption">Figure 2f: Chattogram Summer Subsurface Entrainment Rate.</figcaption>
+                </div>
+
+                <!-- Winter Diagnostics -->
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_Winter_wind.png" alt="Chattogram Winter Wind Vector">
+                    <figcaption class="figure-caption">Figure 2g: Chattogram Winter Wind Speed & Vector Field.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_Winter_Currents.png" alt="Chattogram Winter Surface Currents">
+                    <figcaption class="figure-caption">Figure 2h: Chattogram Winter Surface Ocean Currents.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_Winter_Budget.png" alt="Chattogram Winter Oil Budget">
+                    <figcaption class="figure-caption">Figure 2i: Chattogram Winter Mass Balance / Oil Budget.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_Winter_Entrainment.png" alt="Chattogram Winter Entrainment Rate">
+                    <figcaption class="figure-caption">Figure 2j: Chattogram Winter Subsurface Entrainment Rate.</figcaption>
+                </div>
+            </div>
+
+            <!-- PORT 2: MONGLA -->
+            <h3 style="margin-top: 3rem;">Mongla Port Analysis</h3>
+            <p>Simulations near Mongla Port demonstrate rapid shoreline stranding within 5 days during summer monsoons, whereas winter forcing promotes offshore dispersion into open Bay waters.</p>
+
+            <div class="figure-grid-2col">
+                <div class="figure-card">
+                    <img src="../assets/images/figures/MNG_July15_July22_trajectory.png" alt="July Trajectory Simulation Mongla">
+                    <figcaption class="figure-caption">Figure 3a: Trajectory simulation near Mongla Port (Summer Monsoon: July 15–22). High coastal stranding observed.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/MNG_Jan15_Jan22_trajectory.png" alt="January Trajectory Simulation Mongla">
+                    <figcaption class="figure-caption">Figure 3b: Trajectory simulation near Mongla Port (Winter Monsoon: Jan 15–22).</figcaption>
+                </div>
+            </div>
+
+            <!-- Mongla Seasonal Environmental & Weathering Diagnostics -->
+            <p style="font-size:0.95rem; font-weight:600; margin-top:1.5rem;">Mongla Diagnostic Drivers & Weathering Dynamics:</p>
+
+            <div class="figure-grid-4col">
+                <!-- Summer Diagnostics -->
+                <div class="figure-card">
+                    <img src="../assets/images/figures/MNG_Summer_Wind.png" alt="Mongla Summer Wind Vector">
+                    <figcaption class="figure-caption">Figure 3c: Mongla Summer Wind Speed & Vector Field.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_Summer_Currents.png" alt="Mongla Summer Surface Currents">
+                    <figcaption class="figure-caption">Figure 3d: Mongla Summer Surface Ocean Currents.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/MNG_Summer_Budget.png" alt="Mongla Summer Oil Budget">
+                    <figcaption class="figure-caption">Figure 3e: Mongla Summer Mass Balance / Oil Budget.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/MNG_Summer_Entrainment.png" alt="Mongla Summer Entrainment Rate">
+                    <figcaption class="figure-caption">Figure 3f: Mongla Summer Subsurface Entrainment Rate.</figcaption>
+                </div>
+
+                <!-- Winter Diagnostics -->
+                <div class="figure-card">
+                    <img src="../assets/images/figures/MNG_Winter_Wind.png" alt="Mongla Winter Wind Vector">
+                    <figcaption class="figure-caption">Figure 3g: Mongla Winter Wind Speed & Vector Field.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/CTG_Winter_Currents.png" alt="Mongla Winter Surface Currents">
+                    <figcaption class="figure-caption">Figure 3h: Mongla Winter Surface Ocean Currents.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/MNG_Winter_Budget.png" alt="Mongla Winter Oil Budget">
+                    <figcaption class="figure-caption">Figure 3i: Mongla Winter Mass Balance / Oil Budget.</figcaption>
+                </div>
+                <div class="figure-card">
+                    <img src="../assets/images/figures/MNG_Winter_Entrainment.png" alt="Mongla Winter Entrainment Rate">
+                    <figcaption class="figure-caption">Figure 3j: Mongla Winter Subsurface Entrainment Rate.</figcaption>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Findings / Conclusions -->
+        <section class="project-section">
+            <h2><i class="fas fa-lightbulb"></i> Key Findings</h2>
+            <ul>
+                <li>Season matters: Oil fate varied sharply between summer and winter monsoon conditions, producing very different transport and stranding patterns.</li>
+                <li>High coastal exposure: Some scenarios resulted in near-total shoreline stranding, highlighting significant risks to Bangladesh’s vulnerable coastal zones.</li>
+                <li>Weathering changes the story: Evaporation, emulsification, and biodegradation substantially altered oil persistence, reinforcing the need for season-specific spill response strategies.</li>
+            </ul>
+        </section>
+
+        <!-- Code & Data -->
+        <section class="project-section">
+            <h2><i class="fas fa-code"></i> Code & Data</h2>
+            <p>
+                All code, data processing scripts, and supplementary materials are available through the following repositories:
+            </p>
+            <div class="project-links-bar">
+                <a href="https://github.com/SiAm1998" target="_blank">
+                    <i class="fab fa-github"></i> GitHub Repository
+                </a>
+                <a href="https://data.marine.copernicus.eu/products?pk_vid=bb7d8b712d8de91717889274265f6f0c" target="_blank">
+                    <i class="fas fa-database"></i> Dataset
+                </a>
+                <a href="../assets/images/figures/Abstract_Oil_spill_Md_Abu_Yousuf_Prodhan.pdf" target="_blank">
+                    <i class="fas fa-file-pdf"></i> PDF Report
+                </a>
+            </div>
+        </section>
+
+        <!-- Related Publications -->
+        <section class="project-section">
+            <h2><i class="fas fa-book"></i> Related Publications</h2>
+            <div class="pub-card" style="grid-template-columns: 1fr;">
+                <div class="pub-content">
+                    <h4>Modelling the Fate and Trajectories of Hypothetical Oil Spills Near Chattogram and Mongla Port, Bangladesh</h4>
+                    <div class="pub-meta">
+                        <strong>Prodhan et al. (2025)</strong> — International Conference on Marine Spatial Planning for Advancing Sustainable Blue Growth, 2025.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.13140/RG.2.2.30425.02406/1" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> DOI
+                        </a>
+                        <a href="https://drive.google.com/file/d/1sRxmX86Oo8DaEho3IsFZmLV9dmttstWz/view" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Conference certificate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Project Navigation -->
+    <nav class="project-nav">
+        <a href="#">
+            <i class="fas fa-arrow-left"></i> Previous Project
+        </a>
+        <a href="#">
+            Next Project <i class="fas fa-arrow-right"></i>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom" style="border: none; padding: 2rem;">
+            <p> Yousuf's academic portfolio</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

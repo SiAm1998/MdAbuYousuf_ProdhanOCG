@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Abu Yousuf Prodhan | Physical Oceanographer</title>
+    <meta name="description" content="Physical oceanographer and NF-POGO Scholar researching Lagrangian transport, coastal circulation, and field-model integration.">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        body { font-family: 'Inter', var(--font-body); }
+
+        /* ---- Standardized Tests section ---- */
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .test-card {
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 14px;
+            padding: 2rem;
+            background: #fff;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+        }
+
+        .test-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        .test-card-header i {
+            font-size: 1.5rem;
+        }
+        .test-card-header h3 {
+            margin: 0;
+        }
+
+        .score-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.25rem;
+        }
+        .score-table td {
+            padding: 0.55rem 0.25rem;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .score-table tr:last-child td { border-bottom: none; }
+        .score-table td:first-child { color: #555; }
+        .score-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+        }
+        .score-table tr.overall-row td {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .pending-note {
+            font-style: italic;
+            color: #777;
+            padding: 1rem 0;
+        }
+
+        .test-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.25rem;
+            border-radius: 999px;
+            background: var(--primary-color, #0d6efd);
+            color: #fff !important;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .test-btn:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+         NAVIGATION
+         ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><span>Yousuf's academic portfolio</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#tests">Standarized Tests</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="mailto:abuyousuf.prodhan@dal.ca" class="nav-cta">Get in Touch</a>
+            <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         HERO SECTION
+         Replace the placeholder with your photo:
+         <img src="assets/images/photo.jpg" alt="Md Abu Yousuf Prodhan" class="hero-image">
+         ============================================================ -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-water"></i>
+                    NF-POGO Scholar @ Dalhousie University
+                </div>
+                <h1>
+                    Md Abu Yousuf<br>
+                    <span class="highlight">Prodhan</span>
+                </h1>
+                <p class="hero-subtitle">Physical Oceanographer & Researcher</p>
+                <p class="hero-desc">
+                    Investigating phytoplankton dynamics, marine carbon cycling, and coastal ecosystem 
+                    responses to environmental change. Experienced in satellite oceanography, Lagrangian 
+                    particle tracking, and machine-learning frameworks for marine hazard forecasting.
+                </p>
+                <div class="hero-buttons">
+                    
+                    <a href="#research" class="btn btn-outline">
+                        <i class="fas fa-flask"></i> View Research
+                    </a>
+
+                    <a href="assets/images/CV/CV_MdAbuYousuf_Prodhan.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-pdf"></i> Download CV
+                    </a>
+
+                    <a href="https://www.researchgate.net/profile/Md-Abu-Yousuf-Prodhan-2?ev=hdr_xprf" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-researchgate"></i> ResearchGate
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/md-abu-yousuf-prodhan-7373951b9/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <!-- PHOTO PLACEHOLDER - Replace with your image -->
+                <img src="assets/images/photo_yousuf.jpg" alt="Md Abu Yousuf Prodhan" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT SECTION
+         ============================================================ -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <span class="section-label">About Me</span>
+            <h2 class="section-title">Researcher. Oceanographer. Explorer.</h2>
+            <p class="section-subtitle">
+                Combining numerical modelling with field-based observations to understand 
+                transport and dispersion in coastal marine systems.
+            </p>
+        </div>
+        <div class="section-body">
+            <div class="about-grid">
+                <div class="about-photo">
+                    <!-- ABOUT PHOTO PLACEHOLDER -->
+                    <img src="assets/images/about_photo_yousuf.JPG" alt="About photo">
+                       
+                    <!--
+                    
+                    -->
+                </div>
+                <div class="about-content">
+                    <h3>My Research Journey</h3>
+                    <p>
+                        I am a physical oceanographer with a strong foundation in partial differential equations, 
+                        vector calculus, and linear algebra. My research bridges the gap between numerical 
+                        simulation and field observation, with a particular focus on Lagrangian transport 
+                        processes in coastal and estuarine environments.
+                    </p>
+                    <p>
+                        As an <strong>NF-POGO Centre of Excellence Scholar</strong> at Dalhousie University's 
+                        Ocean Frontier Institute, I am training in observational oceanography across Memorial 
+                        University, the Hakai Institute, and Dalhousie. My work spans from oil-spill trajectory 
+                        modelling using OpenDrift to machine-learning-based harmful algal bloom forecasting 
+                        using satellite remote sensing.
+                    </p>
+                    <p>
+                        I am seeking a PhD position to develop mechanistic biogeochemical models of nutrient 
+                        cycling and primary production, with emphasis on integrating field observations 
+                        (drifters, CTD, moorings) with high-resolution numerical simulations.
+                    </p>
+
+                    <div class="about-tags">
+                        <span class="tag-pill">Lagrangian Transport</span>
+                        <span class="tag-pill">Coastal Circulation</span>
+                        <span class="tag-pill">Remote Sensing</span>
+                        <span class="tag-pill">Machine Learning</span>
+                        <span class="tag-pill">Biogeochemistry</span>
+                        <span class="tag-pill">Field Oceanography</span>
+                    </div>
+
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">4+</div>
+                            <div class="stat-label">Research Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Publications</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3.99</div>
+                            <div class="stat-label">MSc GPA / 4.0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         EDUCATION SECTION
+         ============================================================ -->
+    <section class="section section-alt" id="education">
+        <div class="section-header">
+            <span class="section-label">Education</span>
+            <h2 class="section-title">Academic Background</h2>
+        </div>
+        <div class="section-body">
+            <div class="awards-timeline">
+
+                <div class="award-row">
+                    <div class="award-year">2026–27</div>
+                    <div class="award-card">
+                        <div class="award-title">Post-Graduation in Observational Oceanography</div>
+                        <div class="award-org">Ocean Frontier Institute, Dalhousie University | Halifax, Canada</div>
+                        <div class="award-desc">
+                            <strong>NF-POGO Centre of Excellence Scholar.</strong> Fully funded 10-month postgraduate 
+                            training program (Nippon Foundation); selected as 1 of 10 international scholars. 
+                            Training across Memorial University, Hakai Institute, and Dalhousie.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="award-row">
+                    <div class="award-year">2025–26</div>
+                    <div class="award-card">
+                        <div class="award-title">M.Sc. in Oceanography (CGPA: 3.99/4.00)</div>
+                        <div class="award-org">Shahjalal University of Science and Technology (SUST) | Sylhet, Bangladesh</div>
+                        <div class="award-desc">
+                            Supervisor: Dr. Subrata Sarker. Thesis: "Identifying Ecological Drivers of Phytoplankton 
+                            Functional Diversity Using Field Observations and Machine Learning in the Coastal 
+                            Ecosystem of Bangladesh."
+                        </div>
+                    </div>
+                </div>
+
+                <div class="award-row">
+                    <div class="award-year">2020–25</div>
+                    <div class="award-card">
+                        <div class="award-title">B.Sc. (Honors) in Oceanography (CGPA: 3.81/4.00)</div>
+                        <div class="award-org">Shahjalal University of Science and Technology (SUST) | Sylhet, Bangladesh</div>
+                        <div class="award-desc">
+                            Supervisor: Dr. Subrata Sarker. <strong>Coursework:</strong> Calculus and Vector Analysis; 
+                            Matrix and Differential Equations (including PDEs); Linear Algebra. 
+                            Term Paper: "Modelling the Fate and Trajectories of Hypothetical Oil Spills Near 
+                            Chattogram and Mongla Ports, Bangladesh."
+                            <a href="https://drive.google.com/file/d/1byuRHMlpcXO1_r1eTn5X35OrPJSbEpnA/view?usp=drive_link" target="_blank">[View Paper]</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         RESEARCH PROJECTS SECTION
+         Each card links to a detailed project page.
+         Add your project screenshots in the image placeholders.
+         ============================================================ -->
+    <section class="section" id="research">
+        <div class="section-header">
+            <span class="section-label">Research</span>
+            <h2 class="section-title">Featured Research Projects</h2>
+            <p class="section-subtitle">
+                Selected projects spanning Lagrangian modelling, satellite oceanography, 
+                machine learning, and coastal biogeochemistry.
+            </p>
+        </div>
+        <div class="section-body">
+            <div class="projects-grid">
+
+                <!-- PROJECT 1: Oil Spill Modelling -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <!-- PROJECT IMAGE PLACEHOLDER -->
+                        <img src="assets/images/project-oil-spill.png" alt="Oil Spill Modelling">
+                            
+                        <!--
+                        <img src="assets/images/project-oil-spill.jpg" alt="Oil Spill Modelling">
+                        -->
+                        <span class="project-year">2024–25</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="project-tag">OpenDrift</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">CMEMS</span>
+                            <span class="project-tag">Lagrangian</span>
+                        </div>
+                        <h3 class="project-title">Oil-Spill Trajectory Modelling in the Bay of Bengal</h3>
+                        <p class="project-desc">
+                            Simulated hypothetical oil spills near Chattogram and Mongla ports using OpenDrift/OpenOil 
+                            forced with CMEMS reanalysis. Identified trajectory accuracy limits due to reanalysis 
+                            resolution, motivating drifter-based field validation.
+                        </p>
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="https://github.com/SiAm1998/Oil-Spill-Modelling-in-Bangladesh" target="_blank" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.researchgate.net/publication/393056927" target="_blank" title="ResearchGate">
+                                    <i class="fab fa-researchgate"></i>
+                                </a>
+                            </div>
+                            <a href="projects/oil-spill-modelling.html" class="project-btn">
+                                Details <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2: HAB Prediction -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <!-- PROJECT IMAGE PLACEHOLDER -->
+                        <img src="assets/images/algal-blooms.jpg" alt="HAB Prediction">
+                           
+                        <!--
+                        <img src="assets/images/project-hab.jpg" alt="HAB Prediction">
+                        -->
+                        <span class="project-year">2024–25</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">MODIS</span>
+                            <span class="project-tag">Random Forest</span>
+                            <span class="project-tag">XGBoost</span>
+                        </div>
+                        <h3 class="project-title">Early Warning of Harmful Algal Blooms in the Northern Bay of Bengal (EEZ): A Remote Sensing and Machine Learning Approach for Climate Resilience.</h3>
+                        <p class="project-desc">
+                            Satellite-based MODIS-Aqua pipeline (2010–2024) for harmful algal bloom risk forecasting. 
+                            Applied Random Forest and XGBoost to predict HAB risk 5–7 days in advance with 
+                            seasonal risk mapping.
+                        </p>
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="https://github.com/SiAm1998/HAB-Prediction-BayOfBengal" target="_blank" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                            <a href="projects/hab-prediction.html" class="project-btn">
+                                Details <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3: Phytoplankton & POC -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <!-- PROJECT IMAGE PLACEHOLDER -->
+                        <img src="assets/images/Phyto_project3.jpg" alt="Phytoplankton and POC">
+                        
+                        <!--
+                        <img src="assets/images/Phyto_project3.jpg" alt="Phytoplankton and POC">
+                        -->
+                        <span class="project-year">2023–24</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="project-tag">Remote Sensing</span>
+                            <span class="project-tag">SNAP</span>
+                            <span class="project-tag">R</span>
+                            <span class="project-tag">Ocean Color</span>
+                        </div>
+                        <h3 class="project-title">Satellite Assessment of Particulate Organic Carbon (POC) in the Bay of Bengal: Spatial and Temporal Dynamics</h3>
+                        <p class="project-desc">
+                            Analyzed MODIS-Aqua chlorophyll-a and POC concentrations using SNAP and R. Examined 
+                            seasonal productivity patterns and blue-green band-ratio algorithms across the Bay of Bengal.
+                        </p>
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="https://www.researchgate.net/publication/381844225" target="_blank" title="ResearchGate">
+                                    <i class="fab fa-researchgate"></i>
+                                </a>
+                            </div>
+                            <a href="projects/phytoplankton-poc.html" class="project-btn">
+                                Details <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 4: MSc Thesis -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <!-- PROJECT IMAGE PLACEHOLDER -->
+                        <img src="assets/images/phyto_project4.jpg" alt="MSc Thesis">
+                        
+                        <!--
+                        <img src="assets/images/project-thesis.jpg" alt="MSc Thesis">
+                        -->
+                        <span class="project-year">2025–26</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="project-tag">Field Work</span>
+                            <span class="project-tag">ML</span>
+                            <span class="project-tag">Trait Ecology</span>
+                            <span class="project-tag">Functional Diversity</span>
+                        </div>
+                        <h3 class="project-title">Identifying Ecological Drivers of Phytoplankton Functional Diversity Using Field Observations and Machine Learning in the Coastal Ecosystm of Bangladesh</h3>
+                        <p class="project-desc">
+                            M.Sc. thesis quantifying phytoplankton functional diversity (FRic, FEve, FDiv, FDis, Rao's Q) 
+                            from field observations. Built Random Forest and XGBoost frameworks to identify ecological 
+                            drivers of community assembly.
+                        </p>
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="mailto:abuyousuf.prodhan@dal.ca" title="Contact for details">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                            <a href="projects/msc-thesis.html" class="project-btn">
+                                Details <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PUBLICATIONS SECTION
+         ============================================================ -->
+    <section class="section section-alt" id="publications">
+        <div class="section-header">
+            <span class="section-label">Publications</span>
+            <h2 class="section-title">Peer-Reviewed & Conference Papers</h2>
+        </div>
+        <div class="section-body">
+            <div class="pub-grid">
+
+                <div class="pub-card fade-in">
+                    <div class="pub-badge">P1</div>
+                    <div class="pub-content">
+                        <h4>Modelling the Fate and Trajectories of Hypothetical Oil Spills Near Chattogram and Mongla Port, Bangladesh</h4>
+                        <div class="pub-meta">
+                            <strong>Prodhan et al. (2025)</strong> — International Conference on Marine Spatial Planning 
+                            for Advancing Sustainable Blue Growth, 2025. <em>Oral presentation.</em>
+                        </div>
+                        <div class="pub-links">
+                            <a href="https://www.researchgate.net/publication/393056927" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> ResearchGate
+                            </a>
+                            <a href="https://drive.google.com/file/d/1sRxmX86Oo8DaEho3IsFZmLV9dmttstWz/view?usp=sharing" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pub-actions">
+                        <a href="https://www.researchgate.net/publication/393056927" target="_blank" title="View">
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pub-card fade-in">
+                    <div class="pub-badge preprint">U1</div>
+                    <div class="pub-content">
+                        <h4>Satellite-Based Assessment of Particulate Organic Carbon (POC) Concentrations in the Bay of Bengal: Spatial and Temporal Dynamics</h4>
+                        <div class="pub-meta">
+                            <strong>Prodhan & Ahmad (2025)</strong> — Manuscript under peer review in a Q1 journal. 
+                            Preprint available.
+                        </div>
+                        <div class="pub-links">
+                            <a href="https://www.preprints.org/manuscript/202408.1685" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Preprint
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pub-actions">
+                        <a href="https://www.preprints.org/manuscript/202408.1685" target="_blank" title="View">
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SKILLS SECTION
+         ============================================================ -->
+    <section class="section" id="skills">
+        <div class="section-header">
+            <span class="section-label">Technical Skills</span>
+            <h2 class="section-title">Tools & Expertise</h2>
+            <p class="section-subtitle">
+                Mathematical methods, programming, ocean modelling, remote sensing, and machine learning.
+            </p>
+        </div>
+        <div class="section-body">
+            <div class="skills-grid">
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-square-root-variable"></i></div>
+                    <h4>Mathematical Methods</h4>
+                    <p>Partial Differential Equations, Vector Calculus, Linear Algebra, Fourier Analysis, Time-Series Analysis</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <h4>Programming</h4>
+                    <p>Python, R, NumPy, Pandas, Matplotlib, Scikit-learn, Google Colab</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Statistical & ML Modelling</h4>
+                    <p>GAMs, Random Forest, XGBoost, SHAP interpretation, time-series analysis</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-water"></i></div>
+                    <h4>Ocean Modelling</h4>
+                    <p>OpenDrift/OpenOil, Delft3D FM, Lagrangian particle tracking, NetCDF, CMEMS products</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-satellite"></i></div>
+                    <h4>Remote Sensing</h4>
+                    <p>MODIS, Landsat, Sentinel, SNAP, ArcGIS, Google Earth Engine; ocean-color products (Chl-a, POC, SST)</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-flask"></i></div>
+                    <h4>Biogeochemistry</h4>
+                    <p>Carbon and nutrient cycling, phytoplankton trait-based ecology, functional diversity indices</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         AWARDS & FELLOWSHIPS SECTION
+         ============================================================ -->
+    <section class="section section-alt" id="awards">
+        <div class="section-header">
+            <span class="section-label">Recognition</span>
+            <h2 class="section-title">Fellowships & Awards</h2>
+        </div>
+        <div class="section-body">
+            <div class="awards-timeline">
+
+                <div class="award-row fade-in">
+                    <div class="award-year">2026–27</div>
+                    <div class="award-card">
+                        <div class="award-title">NF-POGO Centre of Excellence Scholar</div>
+                        <div class="award-org">Ocean Frontier Institute, Dalhousie University</div>
+                        <div class="award-desc">
+                            Competitive international selection (10 scholars worldwide). Fully funded 
+                            postgraduate training in observational oceanography.
+                            <a href="https://drive.google.com/file/d/1cCgeFkQNNW5rOJA4IgDvqfm_gjm1VwVi/view?usp=drive_link" target="_blank">[Certificate]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="award-row fade-in">
+                    <div class="award-year">2025</div>
+                    <div class="award-card">
+                        <div class="award-title">Trevor Platt Science Foundation Mentee</div>
+                        <div class="award-org">Mentored by Dr. Sebastian Krieger</div>
+                        <div class="award-desc">
+                            Competitive international mentorship in physical oceanography and 
+                            quantitative modelling.
+                            <a href="https://drive.google.com/file/d/1BstBJL5QqRZ6sq78oHhRjzPYFUeSPNRO/view?usp=drive_link" target="_blank">[Certificate]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="award-row fade-in">
+                    <div class="award-year">2025</div>
+                    <div class="award-card">
+                        <div class="award-title">Champion — NOAMI Ocean Olympiad 2.0</div>
+                        <div class="award-org">National Oceanographic and Maritime Institute, Bangladesh</div>
+                        <div class="award-desc">
+                            1st place among 200+ participants in a national-level competition involving 
+                            online quiz, project screening, and final presentation.
+                            <a href="https://drive.google.com/file/d/1oUKGAM8OEer3Jfjk4E_W4WuucULyaBUg/view?usp=drive_link" target="_blank">[Certificate]</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="award-row fade-in">
+                    <div class="award-year">2025</div>
+                    <div class="award-card">
+                        <div class="award-title">Aspire Leadership Program</div>
+                        <div class="award-org">Aspire Institute & Harvard Business School</div>
+                        <div class="award-desc">
+                            Completed 40 hours of training in critical thinking, leadership, and social impact.
+                            <a href="https://drive.google.com/file/d/13C06Mrk8PexJO6O_mXTWmXz2uWU6ylvG/view?usp=sharing" target="_blank">[Certificate]</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="award-row fade-in">
+                    <div class="award-year">2024</div>
+                    <div class="award-card">
+                        <div class="award-title">Millennium Fellow</div>
+                        <div class="award-org">UN Academic Impact & Millennium Campus Network</div>
+                        <div class="award-desc">
+                            Selected from 52,000+ global applicants. Led NutriBangla project addressing 
+                            malnutrition in rural communities.
+                            <a href="https://www.millenniumfellows.org/fellow/2024/sust/md-abu-yousuf-prodhan" target="_blank">[Profile]</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         STANDARDIZED INTERNATIONAL TESTS SECTION
+         ============================================================ -->
+    <section class="section section-alt" id="tests">
+        <div class="section-header">
+            <span class="section-label">Credentials</span>
+            <h2 class="section-title">Standardized International Tests</h2>
+            <p class="section-subtitle">
+                Official scores for standardized tests taken as part of graduate school
+                and international mobility requirements.
+            </p>
+        </div>
+        <div class="section-body">
+            <div class="test-grid">
+
+                <!-- IELTS -->
+                <div class="test-card fade-in">
+                    <div class="test-card-header">
+                        <i class="fas fa-language"></i>
+                        <h3>IELTS Academic</h3>
+                    </div>
+                    <table class="score-table">
+                        <tr class="overall-row">
+                            <td>Overall Band</td>
+                            <td>7.0</td>
+                        </tr>
+                        <tr>
+                            <td>Listening</td>
+                            <td>7.0</td>
+                        </tr>
+                        <tr>
+                            <td>Reading</td>
+                            <td>7.0</td>
+                        </tr>
+                        <tr>
+                            <td>Writing</td>
+                            <td>7.0</td>
+                        </tr>
+                        <tr>
+                            <td>Speaking</td>
+                            <td>7.5</td>
+                        </tr>
+                    </table>
+                    <a href="assets/images/CV/BD00126507307-23-05-2026-ETRF.pdf" class="test-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-pdf"></i> View eTRF
+                    </a>
+                </div>
+
+                <!-- GRE -->
+                <div class="test-card fade-in">
+                    <div class="test-card-header">
+                        <i class="fas fa-square-root-variable"></i>
+                        <h3>GRE General Test</h3>
+                    </div>
+                    <p class="pending-note">Score would be updated later.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CERTIFICATIONS & COURSES
+         ============================================================ -->
+    <section class="section" id="certifications">
+        <div class="section-header">
+            <span class="section-label">Continuous Learning</span>
+            <h2 class="section-title">Certifications & Courses</h2>
+        </div>
+        <div class="section-body">
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-certificate"></i></div>
+                    <h4>Certifications</h4>
+                    <p>ICCCAD SDG Policy Challenge; Millennium Fellowship 2024; Intl. Symposium on Marine Resource Management; Workshop on Small-Scale Fishers; Virtual Hackathon on Plastic-Free Rivers</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h4>Online Courses</h4>
+                    <p>Google (Crash Course on Python, Supervised ML); ICT Division (Intro to Python); 10 Minute School (Python for AI/ML); Reef Resilience (Adaptation Design, Remote Sensing); Bohubrihi (Python, Data Analytics); IUCN Red List (Modules 1–3)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT / FOOTER
+         ============================================================ -->
+    <footer class="footer" id="contact">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Md Abu Yousuf Prodhan</h3>
+                <p>
+                    Physical oceanographer and NF-POGO Scholar passionate about understanding 
+                    coastal circulation through the integration of numerical modelling and 
+                    field observations.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/md-abu-yousuf-prodhan-7373951b9/" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/SiAm1998" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Md-Abu-Yousuf-Prodhan-2?ev=hdr_xprf" target="_blank" title="ResearchGate">
+                        <i class="fab fa-researchgate"></i>
+                    </a>
+                    <a href="mailto:abuyousuf.prodhan@dal.ca" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#tests">Tests</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="https://github.com/SiAm1998" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.researchgate.net/profile/Md-Abu-Yousuf-Prodhan-2?ev=hdr_xprf" target="_blank">ResearchGate</a></li>
+                    <li>
+                        <a href="assets/images/CV/CV_MdAbuYousuf_Prodhan.pdf" target="_blank" rel="noopener noreferrer">
+                            CV (PDF)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:abuyousuf.prodhan@dal.ca">abuyousuf.prodhan@dal.ca</a></li>
+                    <li><a href="tel:+8801730868050">+880 1730868050</a></li>
+                    <li>Halifax, Canada</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Md Abu Yousuf Prodhan. Built for academic portfolio.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

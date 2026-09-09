@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT TITLE | Md Abu Yousuf Prodhan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body { font-family: 'Inter', var(--font-body); }
+
+        .project-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d3b5c 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.03" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .project-hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-hero .back-link {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-hero .back-link:hover {
+            color: white;
+        }
+
+        .project-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .project-hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .project-hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .project-hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-hero-tags .tag-pill {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: white;
+        }
+
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .project-section {
+            margin-bottom: 3rem;
+        }
+
+        .project-section h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .project-section p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .project-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-section li {
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        /* Figure / Diagram Placeholder */
+        .figure-box {
+            background: var(--bg-light);
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--text-light);
+        }
+
+        .figure-box i {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            opacity: 0.5;
+        }
+
+        .figure-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* To use an actual image, replace the .figure-box div with:
+        <figure>
+            <img src="../assets/images/your-figure.jpg" alt="Description" style="width:100%; border-radius:8px;">
+            <figcaption class="figure-caption">Figure 1: Your caption here.</figcaption>
+        </figure>
+        */
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.25rem;
+            border-radius: var(--radius);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .project-links-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-links-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .project-links-bar a:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .project-nav {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .project-nav a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 640px) {
+            .project-hero h1 { font-size: 1.75rem; }
+            .project-hero-meta { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Md Abu Yousuf Prodhan<span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#research">Research</a></li>
+                <li><a href="../index.html#publications">Publications</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <header class="project-hero">
+        <div class="project-hero-container">
+            <a href="../index.html#research" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Research
+            </a>
+            <h1>Satellite-Based Assessment of Particulate Organic Carbon (POC) in the Bay of Bengal: Spatial and Temporal Dynamics</h1>
+            <div class="project-hero-meta">
+                <span><i class="fas fa-calendar"></i> 2023–2024</span>
+                <span><i class="fas fa-building"></i> Shahjalal University of Science and Technology</span>
+                <span><i class="fas fa-user"></i> Supervisor: Dr. Subrata Sarker</span>
+            </div>
+            <div class="project-hero-tags">
+                <span class="tag-pill">Remote Sensing</span>
+                <span class="tag-pill">SNAP</span>
+                <span class="tag-pill">Ocean Color</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Content -->
+    <main class="project-content">
+
+        <!-- Abstract / Overview -->
+        <section class="project-section">
+            <h2><i class="fas fa-align-left"></i> Overview</h2>
+            <p>
+                <!-- EDIT: Write your project abstract here. 3-5 sentences describing the problem, 
+                     approach, and key findings. -->
+                Particulate Organic Carbon (POC) is an important component of marine carbon cycling, yet its spatial and seasonal dynamics across the Bay of Bengal remain poorly constrained. Using MODIS-Aqua satellite observations from 2015–2024, I assessed basin-wide POC variability and its relationships with chlorophyll-a and sea surface temperature (SST). Surface POC had an overall median concentration of 60.4 mg m⁻³, ranging from 52.6 to 76.8 mg m⁻³, with the highest seasonal median (69.7 mg m⁻³) during the Northeast monsoon and the lowest (47.8 mg m⁻³) during the pre-monsoon. POC showed a very strong positive relationship with chlorophyll-a, highlighting the influence of biological productivity on carbon dynamics in the Bay of Bengal.
+            </p>
+        </section>
+
+        <!-- Methodology -->
+        <section class="project-section">
+            <h2><i class="fas fa-cogs"></i> Methodology</h2>
+            <p>
+                <!-- EDIT: Describe your methods, data sources, models, and tools. -->
+                
+            </p>
+            <ul>
+                <li><strong>Data:</strong> MODIS-Aqua Level-3 satellite datasets for surface POC, chlorophyll-a (Chl-a), and SST, covering the Bay of Bengal from 2015–2024.</li>
+                <li><strong>Tools:</strong> NASA Ocean Color data products, R/RStudio, and ArcGIS for data processing, spatial analysis, visualization, and statistical analysis.</li>
+                <li><strong>Methods:</strong> Basin-wide POC distributions were analyzed for annual and seasonal variability and compared with Chl-a and SST. Kruskal–Wallis H-test was used to assess seasonal differences, while correlation and trend analyses were applied to examine relationships among variables and long-term changes in POC.</li>
+            </ul>
+
+            <!-- METHOD DIAGRAM PLACEHOLDER -->
+            <figure style="margin: 20px 0;">
+                <img src="../assets/images/figures/POC_methodology.jpg" 
+                     alt="Methodology Diagram" 
+                     style="width:60%; max-width:500px; display:block; margin:0 auto; border-radius:8px; border: 1px solid var(--border);">
+                <figcaption class="figure-caption">
+                    Figure 1: Workflow for data extraction, analysis, and interpretation.
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- Results -->
+        <section class="project-section">
+            <h2><i class="fas fa-chart-bar"></i> Results</h2>
+            <p>
+                <!-- EDIT: Summarize your key findings. -->
+                The classified images from the satellite data represent the BoB surface POC concentrations on an annual timescale between 2015–2024 (Figure 2). The central open-ocean center consists of low POC values all over with most values ranging between 30–90 mg m-3, with extensive areas covered with light blue to pale orange. In contrast, coastal waters, particularly on the northern and northeastern edges near the Ganges–Brahmaputra delta, exhibit considerably higher POC values of 120–500 mg m-3, while hotspot regions are as high as 800–1000 mg m-3, evident from orange to red shading. Extreme values exceeding 1000 mg m-3 were detected but constituted less than <0.5% of all pixels. These rare outliers were removed from the visualization by capping the scale at 1000 mg m-3, ensuring clearer representation of the dominant spatial patterns.
+            </p>
+
+            <!-- RESULT FIGURE 1 PLACEHOLDER -->
+            <figure style="margin: 20px 0;">
+                <img src="../assets/images/figures/POC_annual_plots.jpg" 
+                     alt="Methodology Diagram" 
+                     style="width:100%; max-width:1000px; display:block; margin:0 auto; border-radius:8px; border: 1px solid var(--border);">
+                <figcaption class="figure-caption">
+                    Figure 2: MODIS Aqua satellite-derived Annual POC images of the Bay of Bengal from 2015 to 2024. (Color scale capped at 1000 mg m⁻³; extreme values >1000 mg m⁻³ (<0.5% of pixels) were excluded for clarity.)
+                </figcaption>
+            </figure>
+        </section>
+                <!-- EDIT: Additional discussion of results. -->
+                The seasonally classified satellite imagery represents the climatological monthly surface concentration variability of POC over the BoB (Figure 3). 
+            </p>
+
+            <!-- RESULT FIGURE 2 PLACEHOLDER -->
+                <figure style="margin: 20px 0;">
+                <img src="../assets/images/figures/POC_Seasonal_Plots.jpg" 
+                     alt="Methodology Diagram" 
+                     style="width:100%; max-width:1000px; display:block; margin:0 auto; border-radius:8px; border: 1px solid var(--border);">
+                <figcaption class="figure-caption">
+                    Figure 3: Monthly Climatological POC images derived from MODIS Aqua Satellite from 2015-2024. (Color scale capped at 1000 mg m⁻³; extreme values >1000 mg m⁻³ (<0.5% of pixels) were excluded for clarity.)
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- Key Findings / Conclusions -->
+        <section class="project-section">
+            <h2><i class="fas fa-lightbulb"></i> Key Findings</h2>
+            <ul>
+                <!-- EDIT: List 3-5 bullet points of key findings. -->
+                <li>Strong seasonal signal: POC peaked at 69.7 mg m⁻³ during the Northeast monsoon and fell to 47.8 mg m⁻³ during the pre-monsoon.</li>
+                <li>Biological connection: POC showed a very strong positive relationship with chlorophyll-a, linking carbon availability closely with biological productivity.</li>
+                <li>Significant variability: Seasonal POC differences were statistically significant (Kruskal–Wallis H = 290.43, p < 0.001), demonstrating clear seasonal control of carbon dynamics across the Bay of Bengal.</li>
+            </ul>
+        </section>
+
+        <!-- Code & Data -->
+        <section class="project-section">
+            <h2><i class="fas fa-code"></i> Code & Data</h2>
+            <p>
+                All code, data processing scripts, and supplementary materials are available 
+                through the following repositories:
+            </p>
+            <div class="project-links-bar">
+                <a href="https://github.com/SiAm1998" target="_blank">
+                    <i class="fab fa-github"></i> GitHub Repository
+                </a>
+                <a href="#" target="_blank">
+                    <i class="fas fa-database"></i> Dataset
+                </a>
+                <a href="https://www.preprints.org/manuscript/202408.1685" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Preprint
+                </a>
+            </div>
+        </section>
+
+<!-- Related Publications -->
+<section class="project-section">
+
+    <h2><i class="fas fa-book"></i> Related Publications</h2>
+
+    <div class="pub-card" style="grid-template-columns: 1fr;">
+        <div class="pub-content">
+
+            <h4>
+                Satellite-Based Assessment of Particulate Organic Carbon (POC)
+                Concentrations in the Bay of Bengal: Spatial and Temporal Dynamics
+            </h4>
+
+            <div class="pub-meta">
+                <strong>Md Abu Yousuf Prodhan, Hafez Ahmed</strong>
+            </div>
+
+            <div class="pub-links">
+                <a href="https://www.preprints.org/manuscript/202408.1685" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> DOI
+                </a>
+
+                <a href="https://www.preprints.org/manuscript/202408.1685" target="_blank">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+    </main>
+
+    <!-- Project Navigation -->
+    <nav class="project-nav">
+        <a href="#">
+            <i class="fas fa-arrow-left"></i> Previous Project
+        </a>
+        <a href="#">
+            Next Project <i class="fas fa-arrow-right"></i>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom" style="border: none; padding: 2rem;">
+            <p> Md Abu Yousuf Prodhan. Built for academic portfolio.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
