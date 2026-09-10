@@ -187,7 +187,7 @@ In the hero social icons section of `index.html`, uncomment and update:
 
 ## License
 
-This portfolio template is free to use for academic and personal purposes.
+© 2026 Md Abu Yousuf Prodhan. All rights reserved. Content may not be reproduced, distributed, or reused without prior written permission.
 
 ---
 
