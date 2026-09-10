@@ -85,6 +85,27 @@
             font-size: 0.95rem;
         }
         .test-btn:hover { opacity: 0.9; }
+
+        /* Prevent nav overlap with the CTA button as item count grows */
+        .nav-links {
+            flex-wrap: nowrap;
+        }
+        .nav-links li a {
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+        .nav-container {
+            gap: 1rem;
+        }
+        @media (max-width: 1150px) {
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
@@ -101,7 +122,8 @@
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#awards">Awards</a></li>
-                <li><a href="#tests">Standarized Tests</a></li>
+                <li><a href="#tests">Tests</a></li>
+                <li><a href="projects/internship.html">Internship</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <a href="mailto:abuyousuf.prodhan@dal.ca" class="nav-cta">Get in Touch</a>
@@ -455,6 +477,36 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 5: Research Internship -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <!-- PROJECT IMAGE PLACEHOLDER - add an internship photo here -->
+                        <img src="assets/images/internship-cover.jpg" alt="Research Internship">
+                        <span class="project-year">Internship</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="project-tag">Field Work</span>
+                            <span class="project-tag">Research Internship</span>
+                        </div>
+                        <h3 class="project-title">Research Internship Activities</h3>
+                        <p class="project-desc">
+                            An inside look at a research internship — project work, fieldwork,
+                            mentorship, and personal takeaways from the experience.
+                        </p>
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="mailto:abuyousuf.prodhan@dal.ca" title="Contact for details">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                            <a href="projects/internship.html" class="project-btn">
+                                Details <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -775,7 +827,9 @@
                     <li><a href="#research">Research</a></li>
                     <li><a href="#publications">Publications</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#awards">Awards</a></li>
                     <li><a href="#tests">Tests</a></li>
+                    <li><a href="projects/internship.html">Internship</a></li>
                 </ul>
             </div>
             <div class="footer-col">
